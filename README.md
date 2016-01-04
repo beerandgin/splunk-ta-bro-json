@@ -4,7 +4,7 @@ This TA is a branch of the original TA distributed by Splunk; however, it utiliz
 
 ## Why JSON instead of tab-separated files?
 
-The original TA utilizes the `INDEXED_EXTRACTIONS` directive which dramatically increases the amount of storage on disk.  At times, this setting can cause the compression ratio of total size on disk to raw data to exceed 3:1--which is the inverse of what is supposed to happen.  This occurs because the app tells Splunk to index each and every field from every log file that is indexed from Bro.
+The original TA utilizes the `INDEXED_EXTRACTIONS` directive which dramatically increases the amount of storage on disk.  At times, this setting can cause the compression ratio of total size on disk to raw data to exceed 3:1 -- which is the inverse of what is supposed to happen.  This occurs because the app tells Splunk to index each and every field from every log file that is indexed from Bro.
 
 If your Bro installation is large, this is a problem.  For network architecture or cyber security teams, Bro is a mainstay.  Most shops elect to turn on most, if not all of the protocol analyzers and may actually add to the log files already being generated.
 
