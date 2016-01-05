@@ -20,7 +20,7 @@ Seriously, it's that simple.
 
 ## What if we already logged Bro stuff to the default index from Splunk's official TA?
 
-Yeah, I thought of that too.  This TA requires a new index called `bro_json` and will create new sourcetypes of `bro_json_*`, with `*` being the name of the log file Bro generates. For example, `bro_http` will be `bro_json_http`, `bro_conn` will become `bro_json_conn`, and so on. The events indexed into the `bro` index with their original sourcetypes will remain. The Splunk official TA can run alongside this TA and will not interfere.
+Yeah, I thought of that too.  This TA requires a new index called `json_bro` and will create new sourcetypes of `json_bro_*`, with `*` being the name of the log file Bro generates. For example, `bro_http` will be `json_bro_http`, `bro_conn` will become `json_bro_conn`, and so on. The events indexed into the `bro` index with their original sourcetypes will remain. The Splunk official TA can run alongside this TA and will not interfere.
 
 To capture all `bro_http` events, use the following search:
 
@@ -30,4 +30,4 @@ Or:
 
 > `sourcetype="bro*http"`
 
-Either search string will search for `bro_http` or `bro_json_http` sourcetypes and return those events to you. Eventtypes have been remapped to account for the new sourcetypes, so a search of `eventtype="bro_http"` is mapped to `index="*" (sourcetype="bro_http" OR sourcetype="bro_json_http")`. Also, because the sourcetypes are different, the field extractions for each sourcetype (using Splunk_TA_bro and Bro_TA_json) will perform appropriate field extractions for each sourcetype. This is important for CIM tagging, for example.
+Either search string will search for `bro_http` or `json_bro_http` sourcetypes and return those events to you. Eventtypes have been remapped to account for the new sourcetypes, so a search of `eventtype="bro_http"` is mapped to `index="*" (sourcetype="bro_http" OR sourcetype="json_bro_http")`. Also, because the sourcetypes are different, the field extractions for each sourcetype (using Splunk_TA_bro and Bro_TA_json) will perform appropriate field extractions for each sourcetype. This is important for CIM tagging, for example.
