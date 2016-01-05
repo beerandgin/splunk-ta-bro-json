@@ -30,4 +30,4 @@ Or:
 
 > `sourcetype="bro*http"`
 
-Either search will search for `bro_http` or `bro_json_http` sourcetypes and return those events to you. Also, because the sourcetypes are different, the field extractions for each sourcetype (using Splunk_TA_bro and Bro_TA_json) will perform appropriate field extractions for each sourcetype. This is important for CIM tagging, for example.
+Either search string will search for `bro_http` or `bro_json_http` sourcetypes and return those events to you. Eventtypes have been remapped to account for the new sourcetypes, so a search of `eventtype="bro_http"` is mapped to `index="*" (sourcetype="bro_http" OR sourcetype="bro_json_http")`. Also, because the sourcetypes are different, the field extractions for each sourcetype (using Splunk_TA_bro and Bro_TA_json) will perform appropriate field extractions for each sourcetype. This is important for CIM tagging, for example.
