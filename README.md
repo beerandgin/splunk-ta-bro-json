@@ -34,3 +34,4 @@ Either search string will search for `bro_http` or `json_bro_http` sourcetypes a
 
 ## TODO
 - [ ] Troubleshoot why `eventtype` searches do not return list of all fields
+- [ ] Generate samples for use with the `eventgen` app
